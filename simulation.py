@@ -4,3 +4,4 @@ for i in range(10):
 age = input('Enter your age: ')
 print('Your age is', age)
 print('Hi this is first commit')
+print('Hello for second commit')
