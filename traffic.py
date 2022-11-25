@@ -12,3 +12,4 @@ class lane:
         self.state = 3
         
 print('modified traffic')
+print('modified gui')
