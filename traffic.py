@@ -10,3 +10,5 @@ class lane:
         
     def switch_green(self):
         self.state = 3
+        
+print('modified traffic')
