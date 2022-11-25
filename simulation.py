@@ -1,7 +1,5 @@
-print('Hello World')
-for i in range(10):
-    print('Number', i+1)
-age = input('Enter your age: ')
-print('Your age is', age)
-print('Hi this is first commit')
-print('Hello for second commit')
+from traffic import lane
+
+lane_1 = lane()
+lane_1.switch_green()
+print(lane_1.green)
