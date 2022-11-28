@@ -1,2 +1,2 @@
 # For Object Detection AI
-print('Hello')
+print('This is for object detection')
