@@ -1,4 +1,7 @@
 #For Detecting Images
-python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg --device 1
+python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg --device 0
 
-python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg --device 1
+#For Detecting Videos
+python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg --device 0
+
+python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source 1 --device 0
