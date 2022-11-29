@@ -1,1 +1,7 @@
+#Ignoring Pythong Virtual Environment
 /venv/*
+/.vscode/*
+/object-detection/yolo/
+__pycache__/*
+
+*.pt
