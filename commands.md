@@ -1,11 +1,23 @@
-#Change Directory
+# Commands used for running YOLOv7
+
+## Change Directory
+
+```cmd
 cd D:
 D:\Thesis\Emergency Priority\object-detection\yolo
+```
 
-#For Detecting Images
+## For Tracking Images
+```cmd
 python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg --device 0
+```
 
-#For Detecting Videos
+## For Tracking Videos
+```cmd
 python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg --device 0
+```
 
+## Using webcam
+```cmd
 python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source 1 --device 0
+```
