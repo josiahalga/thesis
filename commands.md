@@ -3,8 +3,7 @@
 ## Change Directory
 
 ```cmd
-cd D:
-D:\Thesis\Emergency Priority\object-detection\yolo
+cd directory/of/yolo
 ```
 
 ## For Tracking Images
