@@ -2,9 +2,11 @@
 
 This is a repository for our group's Thesis Project.
 
-## **Requirements**
+## Requirements
 
-## **The Team**
+- YOLOv7
+
+## The Team
 
 The following are the team for this thesis study.
 
