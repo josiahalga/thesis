@@ -1,6 +1,6 @@
 import colorama
 import turtle
-from colorama import Fore, Back, Style
+from colorama import Fore
 from traffic import lane
 from time import sleep
 
