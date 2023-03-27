@@ -4,5 +4,10 @@
 /object-detection/yolo/
 __pycache__/*
 
+/dataset/
+sound-recognition/
+Large-Scale-Audio-dataset/
+/runs
+
 #Yolo Weights
 *.pt
