@@ -1,8 +1,14 @@
-import colorama
-import turtle
-from colorama import Fore
 from traffic import lane
+from machine import Pin
 from time import sleep
+# Lane 1
+lane_1_green = 21
+lane_1_yellow = 22
+lane_1_red = 23
+
+red_1 = Pin(lane_1_red, Pin.OUT)
+yellow_1 = Pin(lane_1_yellow, Pin.OUT)
+green_1 = Pin(lane_1_green, Pin.OUT)
 
 #initiate 4 lanes
 lane_1 = lane()
@@ -10,163 +16,8 @@ lane_2 = lane()
 lane_3 = lane()
 lane_4 = lane()
 
-pen_1 = turtle.Turtle()
-red_light_1 = turtle.Turtle()
-yellow_light_1 = turtle.Turtle()
-green_light_1 = turtle.Turtle()
-
-pen_2 = turtle.Turtle()
-red_light_2 = turtle.Turtle()
-yellow_light_2 = turtle.Turtle()
-green_light_2 = turtle.Turtle()
-
-pen_3 = turtle.Turtle()
-red_light_3 = turtle.Turtle()
-yellow_light_3 = turtle.Turtle()
-green_light_3 = turtle.Turtle()
-
-pen_4 = turtle.Turtle()
-red_light_4 = turtle.Turtle()
-yellow_light_4 = turtle.Turtle()
-green_light_4 = turtle.Turtle()
-
 def main():
-    wn = turtle.Screen()
-    wn.title('Traffic Light Simulation')
-    wn.bgcolor('black')
 
-    #draw
-    pen_1.color('yellow')
-    pen_1.width(3)
-    pen_1.hideturtle()
-    pen_1.penup()
-    pen_1.goto(-30, 130)
-    pen_1.pendown()
-    pen_1.fd(60)
-    pen_1.rt(90)
-    pen_1.fd(120)
-    pen_1.rt(90)
-    pen_1.fd(60)
-    pen_1.rt(90)
-    pen_1.fd(120)
-
-    #draw red
-    red_light_1.shape('circle')
-    red_light_1.color('grey')
-    red_light_1.penup()
-    red_light_1.goto(0, 110)
-
-    #draw yellow
-    yellow_light_1.shape('circle')
-    yellow_light_1.color('grey')
-    yellow_light_1.penup()
-    yellow_light_1.goto(0, 70)
-    
-    #draw red
-    green_light_1.shape('circle')
-    green_light_1.color('grey')
-    green_light_1.penup()
-    green_light_1.goto(0, 30)
-    
-    #draw
-    pen_2.color('yellow')
-    pen_2.width(3)
-    pen_2.hideturtle()
-    pen_2.penup()
-    pen_2.goto(40, 60)
-    pen_2.pendown()
-    pen_2.fd(60)
-    pen_2.rt(90)
-    pen_2.fd(120)
-    pen_2.rt(90)
-    pen_2.fd(60)
-    pen_2.rt(90)
-    pen_2.fd(120)
-
-    #draw red
-    red_light_2.shape('circle')
-    red_light_2.color('grey')
-    red_light_2.penup()
-    red_light_2.goto(70, 40)
-
-    #draw yellow
-    yellow_light_2.shape('circle')
-    yellow_light_2.color('grey')
-    yellow_light_2.penup()
-    yellow_light_2.goto(70, 0)
-    
-    #draw red
-    green_light_2.shape('circle')
-    green_light_2.color('grey')
-    green_light_2.penup()
-    green_light_2.goto(70, -40)
-    
-    #draw
-    pen_3.color('yellow')
-    pen_3.width(3)
-    pen_3.hideturtle()
-    pen_3.penup()
-    pen_3.goto(-30, -10)
-    pen_3.pendown()
-    pen_3.fd(60)
-    pen_3.rt(90)
-    pen_3.fd(120)
-    pen_3.rt(90)
-    pen_3.fd(60)
-    pen_3.rt(90)
-    pen_3.fd(120)
-
-    #draw red
-    red_light_3.shape('circle')
-    red_light_3.color('grey')
-    red_light_3.penup()
-    red_light_3.goto(0, -30)
-
-    #draw yellow
-    yellow_light_3.shape('circle')
-    yellow_light_3.color('grey')
-    yellow_light_3.penup()
-    yellow_light_3.goto(0, -70)
-    
-    #draw red
-    green_light_3.shape('circle')
-    green_light_3.color('grey')
-    green_light_3.penup()
-    green_light_3.goto(0, -110)
-    
-    #draw
-    pen_4.color('yellow')
-    pen_4.width(3)
-    pen_4.hideturtle()
-    pen_4.penup()
-    pen_4.goto(-100, 60)
-    pen_4.pendown()
-    pen_4.fd(60)
-    pen_4.rt(90)
-    pen_4.fd(120)
-    pen_4.rt(90)
-    pen_4.fd(60)
-    pen_4.rt(90)
-    pen_4.fd(120)
-
-    #draw red
-    red_light_4.shape('circle')
-    red_light_4.color('grey')
-    red_light_4.penup()
-    red_light_4.goto(-70, 40)
-
-    #draw yellow
-    yellow_light_4.shape('circle')
-    yellow_light_4.color('grey')
-    yellow_light_4.penup()
-    yellow_light_4.goto(-70, 0)
-    
-    #draw red
-    green_light_4.shape('circle')
-    green_light_4.color('grey')
-    green_light_4.penup()
-    green_light_4.goto(-70, -40)
-    
     while True: #cycle through 4 lanes
         lane_1_green()
         display_lanes()
@@ -193,8 +44,6 @@ def main():
         display_lanes()
         sleep(3)
         
-    wn.mainloop() 
-        
 #function for displaying text
 def display_lanes():
         
@@ -217,14 +66,26 @@ def display_lanes():
 def traffic_1_check():
     
     if lane_1.state == 3:
+        green_1.value(1)
+        yellow_1.value(0)
+        red_1.value(0)
+        
         red_light_1.color('grey')
         yellow_light_1.color('grey')
         green_light_1.color('green')
     elif lane_1.state == 2:
+        green_1.value(0)
+        yellow_1.value(1)
+        red_1.value(0)
+        
         red_light_1.color('grey')
         yellow_light_1.color('yellow')
         green_light_1.color('grey')
     elif lane_1.state == 1:
+        green_1.value(0)
+        yellow_1.value(0)
+        red_1.value(1)
+        
         red_light_1.color('red')
         yellow_light_1.color('grey')
         green_light_1.color('grey')
