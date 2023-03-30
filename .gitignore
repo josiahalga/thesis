@@ -4,6 +4,7 @@
 /object-detection/yolo/
 __pycache__/*
 
+#Sound-Recognition
 /dataset/
 sound-recognition/
 Large-Scale-Audio-dataset/

@@ -1,6 +1,8 @@
-from traffic import lane
-from machine import Pin
 from time import sleep
+
+from machine import Pin
+
+from traffic import lane
 
 # Emergency Interrupt
 em_1 = False
@@ -144,26 +146,6 @@ def main():
         sleep(5)
         lane_4_yellow()
         sleep(3)
-
-# function for displaying text
-
-
-def display_lanes():
-
-    print('Lane 1 Green:' + Fore.GREEN, lane_1.state, end=' ')
-    print('\tLane 2 Green:', lane_2.state, end=' ')
-    print('\tLane 3 Green:', lane_3.state, end=' ')
-    print('\tLane 4 Green:', lane_4.state)
-    print('Lane 1 Yellow:', lane_1.state, end=' ')
-    print('\tLane 2 Yellow', lane_2.state, end=' ')
-    print('\tLane 3 Yellow', lane_3.state, end=' ')
-    print('\tLane 4 Yellow', lane_4.state)
-    print('Lane 1 Red:', lane_1.state, end=' ')
-    print('\tLane 2 Red:', lane_2.state, end=' ')
-    print('\tLane 3 Red:', lane_3.state, end=' ')
-    print('\tLane 4 Red:', lane_4.state)
-    print('------------------------------------------')
-
 
 def traffic_1_check():
 
