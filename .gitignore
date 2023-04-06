@@ -6,9 +6,11 @@ __pycache__/*
 
 #Sound-Recognition
 /dataset/
-sound-recognition/
+#sound-recognition/
 Large-Scale-Audio-dataset/
+UrbanSound8k/
 /runs
+.DS_Store
 
 #Yolo Weights
 *.pt
