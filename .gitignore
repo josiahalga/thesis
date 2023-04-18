@@ -6,11 +6,15 @@ __pycache__/*
 
 #Sound-Recognition
 /dataset/
-#sound-recognition/
+sound-recognition/dataset/
+sound-recognition/devicehive-audio-analysis/
 Large-Scale-Audio-dataset/
 UrbanSound8k/
 /runs
 .DS_Store
+
+# Data Files
+data/
 
 #Yolo Weights
 *.pt
