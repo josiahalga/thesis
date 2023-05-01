@@ -1,8 +1,57 @@
+import ubinascii
+import machine
+import micropython
+import network
+import esp
+esp.osdebug(None)
+import gc
+gc.collect()
+
 from time import sleep
-
 from machine import Pin
-
 from traffic import lane
+from umqttsimple import MQTTClient
+
+ssid = 'Tisoyyy'
+password = 'jozengwapo'
+mqtt_server = '192.168.222.87'
+
+client_id = ubinascii.hexlify(machine.unique_id())
+
+mqtt_in = b'em/lanes'
+
+last_message = 0
+message_interval = 5
+mqtt_trigger = False
+
+station = network.WLAN(network.STA_IF)
+
+station.active(True)
+station.connect(ssid, password)
+
+while station.isconnected() == False:
+  pass
+
+print('Connection successful')
+
+def connect_mqtt():
+  global client_id, mqtt_server
+  print('---Connecting to Broker---')
+  client = MQTTClient(client_id, mqtt_server)
+  #client = MQTTClient(client_id, mqtt_server, user='Josiah', password='2017100323')
+  client.connect() 
+  print('Connected to %s MQTT broker' % (mqtt_server))
+  return client
+
+def restart_and_reconnect():
+  print('Failed to connect to MQTT broker. Reconnecting...')
+  time.sleep(5)
+  machine.reset()
+  
+try:
+  client = connect_mqtt()
+except OSError as e:
+  restart_and_reconnect()
 
 # Emergency Interrupt
 em_1 = False
