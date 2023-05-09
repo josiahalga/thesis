@@ -18,5 +18,3 @@ data/
 
 #Yolo Weights
 *.pt
-
-test_ip_cam.py

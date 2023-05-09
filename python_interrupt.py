@@ -7,7 +7,7 @@ from time import sleep
 
 from paho.mqtt import client as mqtt_client
 
-broker = '192.168.1.80'
+broker = '192.168.1.1'
 port = 1883
 topic = "em/lanes"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
