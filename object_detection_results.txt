@@ -1,0 +1,18 @@
+File: D:\Thesis\Emergency Priority\data\ambulance.mp4
+True Positive: 7
+False Positive: 629
+True Negative: 940
+Detections: 1576
+
+File: data\lane_2.mp4
+True Positive: 909
+False Positive: 4769
+True Negative: 23900
+Detections: 29578
+
+File: data\lane_2.mp4
+True Positive: 302
+False Positive: 1030
+True Negative: 4428
+Detections: 5760
+

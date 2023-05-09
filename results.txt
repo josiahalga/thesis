@@ -1,0 +1,36 @@
+File: D:\Thesis\Emergency Priority\data\ambulance.mp4
+True Positive: 7
+False Positive: 629
+True Negative: 1569
+Detections: 1576
+
+File: D:\Thesis\Emergency Priority\data\lane_1.mp4
+True Positive: 520
+False Positive: 2276
+True Negative: 12968
+Detections: 15764
+
+File: D:\Thesis\Emergency Priority\data\lane_2.mp4
+True Positive: 786
+False Positive: 4631
+True Negative: 20316
+Detections: 25733
+
+File: D:\Thesis\Emergency Priority\data\atlas_1.mp4
+True Positive: 80
+False Positive: 616
+True Negative: 6412
+Detections: 7108
+
+File: D:\Thesis\Emergency Priority\data\atlas_2.mp4
+True Positive: 1378
+False Positive: 20528
+True Negative: 42470
+Detections: 64376
+
+File: D:\Thesis\Emergency Priority\data\atlas_3.mp4
+True Positive: 16
+False Positive: 1173
+True Negative: 6574
+Detections: 7763
+

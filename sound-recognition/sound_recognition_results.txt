@@ -1,0 +1,31 @@
+Test 1: No Ambulance - 5 mins
+Detected: 14
+Not Detected: 47
+Total Batches: 61
+
+Test 2: Ambulance Present first 1 min - 5 mins
+Detected: 21
+Not Detected: 29
+Total Batches: 50
+
+Test 3: Ambulance Present first 2 min - 5 mins
+Detected: 18
+Not Detected: 39
+Total Batches: 57
+
+Test 4: Ambulance Present first 3 min - 5 mins
+Detected: 21
+Not Detected: 29
+Total Batches: 50
+
+Test 5: Ambulance Present first 4 min - 5 mins
+Detected: 15
+Not Detected: 34
+Total Batches: 49
+
+---------------------RESET--------------------
+
+Detected: 0
+Not Detected: 2
+Total Batches: 2
+

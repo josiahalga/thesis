@@ -3,8 +3,8 @@ import machine
 import micropython
 import network
 import esp
-esp.osdebug(None)
 import gc
+import _thread
 gc.collect()
 
 from time import sleep
@@ -12,34 +12,56 @@ from machine import Pin
 from traffic import lane
 from umqttsimple import MQTTClient
 
-ssid = 'Tisoyyy'
-password = 'jozengwapo'
-mqtt_server = '192.168.222.87'
+ssid = 'Alga_2.4GHz'
+password = 'Algafamily123!'
+client = None
+mqtt_server = '192.168.1.10'
+
+lane_1 = 0
+lane_2 = 0
+lane_3 = 0
+lane_4 = 0
+#EXAMPLE IP ADDRESS or DOMAIN NAME
+#mqtt_server = '192.168.1.106'
 
 client_id = ubinascii.hexlify(machine.unique_id())
 
-mqtt_in = b'em/lanes'
+ambulance_detection = b'em/lane_1'
+siren_detection = b'em/sound'
 
 last_message = 0
 message_interval = 5
-mqtt_trigger = False
 
-station = network.WLAN(network.STA_IF)
+def my_thread_func():
+    global client
+    while True:
+        try:
+            msg = client.check_msg()
+        except OSError as e:
+            restart_and_reconnect()
 
-station.active(True)
-station.connect(ssid, password)
+def task():
+    while True:
+        ran = random.randint(1, 2)
+        print(ran)
+        if ran == 1:
+            print('Interrupting')
+            interrupt_main()
+        time.sleep(1)
 
-while station.isconnected() == False:
-  pass
-
-print('Connection successful')
+def handle_sigint(signalum, frame):
+    print('Main Interrupted')
+    time.sleep(3)
 
 def connect_mqtt():
   global client_id, mqtt_server
   print('---Connecting to Broker---')
   client = MQTTClient(client_id, mqtt_server)
-  #client = MQTTClient(client_id, mqtt_server, user='Josiah', password='2017100323')
-  client.connect() 
+  client.set_callback(subscribe_callback)
+  client.connect()
+  client.subscribe(ambulance_detection)
+  client.subscribe('em/lane_2')
+  client.subscribe(siren_detection)
   print('Connected to %s MQTT broker' % (mqtt_server))
   return client
 
@@ -48,10 +70,37 @@ def restart_and_reconnect():
   time.sleep(5)
   machine.reset()
   
-try:
-  client = connect_mqtt()
-except OSError as e:
-  restart_and_reconnect()
+def subscribe_callback(topic, msg):
+    global lane_1, lane_2, lane_3, lane_4
+    msg = msg.decode('UTF-8')
+    topic = topic.decode('UTF-8')
+    if topic == 'em/lane_1':
+        lane_1 = int(msg)
+        print(lane_1)
+    for i in msg:
+        if i == 'q':
+            client.disconnect()
+
+def read_sensor():
+  try:
+    sensor.measure()
+    temp = sensor.temperature()
+    # uncomment for Fahrenheit
+    #temp = temp * (9/5) + 32.0
+    hum = sensor.humidity()
+    if (isinstance(temp, float) and isinstance(hum, float)) or (isinstance(temp, int) and isinstance(hum, int)):
+      temp = (b'{0:3.1f},'.format(temp))
+      hum =  (b'{0:3.1f},'.format(hum))
+      return temp, hum
+    else:
+      return('Invalid sensor readings.')
+  except OSError as e:
+    return('Failed to read sensor.')
+
+def my_interrupt_handler(timer):
+    # Check the value of the variable
+    if lane_1 == 1:
+        ep_1_interrupt()
 
 # Emergency Interrupt
 em_1 = False
@@ -59,7 +108,7 @@ em_2 = False
 em_3 = False
 em_4 = False
 
-def ep_1_interrupt(pin):
+def ep_1_interrupt():
 
     while True:
         if pin.value() == 0:
@@ -107,14 +156,14 @@ def ep_4_interrupt(pin):
 
 
 # Emergency Pins
-ep_1 = 0
+ep_1 = Pin(5, Pin.IN, Pin.PULL_DOWN)
 ep_2 = Pin(18, Pin.IN, Pin.PULL_DOWN)
 ep_3 = Pin(19, Pin.IN, Pin.PULL_DOWN)
 ep_4 = Pin(2, Pin.IN, Pin.PULL_DOWN)
 
 
 # Interrupt Handler
-ep_1.irq(trigger=Pin.IRQ_RISING, handler=ep_1_interrupt)
+#ep_1.irq(trigger=Pin.IRQ_RISING, handler=ep_1_interrupt)
 ep_2.irq(trigger=Pin.IRQ_RISING, handler=ep_2_interrupt)
 ep_3.irq(trigger=Pin.IRQ_RISING, handler=ep_3_interrupt)
 ep_4.irq(trigger=Pin.IRQ_RISING, handler=ep_4_interrupt)
@@ -168,10 +217,34 @@ def main():
     global em_2
     global em_3
     global em_4
+    global client
 
     green_1.value(0)
     yellow_1.value(0)
     red_1.value(0)
+    
+    station = network.WLAN(network.STA_IF)
+
+    station.active(True)
+    station.connect(ssid, password)
+
+    while station.isconnected() == False:
+        pass
+
+    print('Connection successful')
+    
+    try:
+        client = connect_mqtt()
+    except OSError as e:
+        restart_and_reconnect()
+    
+    timer = machine.Timer(0)
+
+    my_variable = 0
+
+    timer.init(period=100, mode=machine.Timer.PERIODIC, callback=my_interrupt_handler)
+    
+    _thread.start_new_thread(my_thread_func, ())
 
     while True:  # cycle through 4 lanes
 
