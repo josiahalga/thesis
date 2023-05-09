@@ -107,7 +107,7 @@ def ep_4_interrupt(pin):
 
 
 # Emergency Pins
-ep_1 = Pin(5, Pin.IN, Pin.PULL_DOWN)
+ep_1 = 0
 ep_2 = Pin(18, Pin.IN, Pin.PULL_DOWN)
 ep_3 = Pin(19, Pin.IN, Pin.PULL_DOWN)
 ep_4 = Pin(2, Pin.IN, Pin.PULL_DOWN)

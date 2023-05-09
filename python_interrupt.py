@@ -7,7 +7,7 @@ from time import sleep
 
 from paho.mqtt import client as mqtt_client
 
-broker = '192.168.1.8'
+broker = '192.168.1.80'
 port = 1883
 topic = "em/lanes"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
@@ -61,12 +61,12 @@ def handle_sigint(signalnum, frame):
 def task():
     try:
         # block for a moment
-        sleep(20)
+        sleep(2)
         client = connect_mqtt()
         subscribe(client)
     # interrupt the main thread
         print('Interrupting main thread now')
-        interrupt_main()
+        #interrupt_main()
     except KeyboardInterrupt:
         sys.exit()
 
@@ -78,7 +78,7 @@ thread = Thread(target=task)
 thread.start()
 # wait around
 
-client = connect_mqtt
+client = connect_mqtt()
 publish(client, 1)
 while True:
     print('Main thread waiting...')
