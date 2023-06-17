@@ -9,10 +9,10 @@ import cv2
 import numpy as np
 from paho.mqtt import client as mqtt_client
 
-broker = '192.168.1.1'
+broker = '192.168.1.18'
 port = 1883
 # topic = "em/lanes"
-ambulance = "em/lanes"
+ambulance = "em/emergency"
 mqtt_lane_1 = "em/lane_1"
 mqtt_lane_2 = "em/lane_2"
 siren = "em/sound"
@@ -22,49 +22,62 @@ lane = 0
 sound = 0
 lane_1 = 0
 lane_2 = 0
+ambulance_emergency = 0
+
+count = 0
 
 trigger = False
+values = {}
 
-client_id = f'python-mqtt-{random.randint(0, 1000)}'
+f = open("ambulance_siren_test.txt", 'a')
+
+client_id = f'python-mqtt-{random.randint(1000, 10000)}'
 
 
 def main():
-    val = [0, 0]
-    temp = [0, 0]
-    first = 0
-    change = False
+
     # temp = True
-    global lane, sound, trigger
+    global lane, sound, trigger, values, count, ambulance_emergency
 
     signal(SIGINT, handle_sigint)
     thread = Thread(target=task)
     thread.start()
     client = connect_mqtt()
     # print('Connected')
+    sleep(5)
     print('LISTENING')
-    while True:
+    try:
+        while True:
+            # subscribe(client, ambulance)
+            # subscribe(client, mqtt_lane_2)
+            # publish(client)
+            count += 1
+            temp = []
+            temp.append(lane_1)
+            temp.append(sound)
+            temp.append(ambulance_emergency)
 
-        # subscribe(client, ambulance)
-        # subscribe(client, mqtt_lane_2)
-        # publish(client)
+            # print(values.keys())
+            if str(temp) in values.keys():
+                for i in values.keys():
+                    if i == str(temp):
+                        values[i] += 1
+                        f.write(f'{i}: {values[i]} ---- Frame: {count}\n')
+                        # print(i, values[i])
+            else:
+                # print(f'Added: {str(temp)}')
+                print("Added New Sequence")
+                values.update({str(temp): 1})
+                temp = []
 
-        if int(lane_1) == 1 and int(sound) == 1:
-            print('----LANE 1 EMERGENCY----')
-            first = 0
-        elif int(lane_2) == 1 and int(sound) == 1:
-            print('----LANE 2 EMERGENCY----')
-            first = 1
+            sleep(0.5)
+    except KeyboardInterrupt:
+        for i in values.keys():
+            print('Appended New Sequence')
+            f.write(f'{i}: {values[i]}\n')
 
-        val[0] = int(lane)
-        val[1] = int(sound)
-
-        if val != temp:
-            if val[0] == 1 and val[1] == 1:
-                print('---EMERGENCY----')
-                trigger = True
-
-            for i in range(0, len(temp)):
-                temp[i] = val[i]
+        print('Write to file')
+        f.close()
 
 
 def connect_mqtt():
@@ -76,7 +89,7 @@ def connect_mqtt():
             print("Failed to connect, return code %d\n", rc)
     # Set Connecting Client ID
     client = mqtt_client.Client(client_id)
-    client.username_pw_set('josiah', 'password')
+    # client.username_pw_set('josiah', 'password')
     client.on_connect = on_connect
     client.connect(broker, port)
     return client
@@ -100,16 +113,18 @@ def publish(client):
 def subscribe(client: mqtt_client, s_topic):
 
     def on_message(client, userdata, msg):
-        global lane, sound, lane_1, lane_2
+        global lane, sound, lane_1, lane_2, ambulance_emergency
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
         if msg.topic == 'em/lanes':
-            lane = msg.payload.decode()
+            lane = int(msg.payload.decode())
         elif msg.topic == 'em/sound':
-            sound = msg.payload.decode()
+            sound = int(msg.payload.decode())
         elif msg.topic == 'em/lane_1':
-            lane_1 = msg.payload.decode()
+            lane_1 = int(msg.payload.decode())
         elif msg.topic == 'em/lane_2':
-            lane_2 = msg.payload.decode()
+            lane_2 = int(msg.payload.decode())
+        elif msg.topic == 'em/emergency':
+            ambulance_emergency = int(msg.payload.decode())
 
     client.subscribe(s_topic)
     client.on_message = on_message
@@ -117,6 +132,7 @@ def subscribe(client: mqtt_client, s_topic):
 
 def task():
     print('Subsribe Thread Starting')
+    global values
     try:
         client = connect_mqtt()
         subscribe(client, ambulance)
@@ -124,27 +140,24 @@ def task():
         subscribe(client, mqtt_lane_1)
         subscribe(client, siren)
         print('Subsribe Thread Started')
-        # client.loop_forever()
+        client.loop_start()
     except KeyboardInterrupt:
-        sys.exit()
+        client.loop_stop()
+        client.disconnect()
 
 
 def handle_sigint(signalum, frame):
+    global count
+    for i in values.keys():
+        print(f'Writing To File: {i}')
+        f.write(f'{i}: {values[i]}\n')
+    f.write(f'Total Frames: {count}')
+    f.write('\n\n')
+
+    print('Write to file')
+    f.close()
     sys.exit()
 
 
 if __name__ == '__main__':
     main()
-
-
-'''
-cap = cv2.VideoCapture('rtsp://admin:Adha2023!@192.168.1.108/cam/realmonitor?channel=1&subtype=1')
-while True:
-    ret, frame = cap.read()
-    cv2.imshow('frame', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
-'''

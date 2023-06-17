@@ -15,6 +15,7 @@ UrbanSound8k/
 
 # Data Files
 data/
+Demo/
 
 #Yolo Weights
 *.pt

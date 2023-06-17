@@ -17,41 +17,50 @@ password = 'Algafamily123!'
 client = None
 mqtt_server = '192.168.1.10'
 
-lane_1 = 0
-lane_2 = 0
-lane_3 = 0
-lane_4 = 0
-#EXAMPLE IP ADDRESS or DOMAIN NAME
-#mqtt_server = '192.168.1.106'
+mqtt_lane_1 = 0
+mqtt_lane_2 = 0
+mqtt_lane_3 = 0
+mqtt_lane_4 = 0
+mqtt_sound = 0
+
+emergency_status = False
+emergency_lane = 0
+
+semaphore = _thread.allocate_lock()
 
 client_id = ubinascii.hexlify(machine.unique_id())
 
-ambulance_detection = b'em/lane_1'
-siren_detection = b'em/sound'
+detection_lane_1 = "em/lane_1"
+detection_lane_2 = "em/lane_2"
+detection_lane_3 = "em/lane_3"
+detection_lane_4 = "em/lane_4"
+siren = "em/sound"
 
 last_message = 0
 message_interval = 5
 
 def my_thread_func():
     global client
+    
+    station = network.WLAN(network.STA_IF)
+
+    station.active(True)
+    station.connect(ssid, password)
+
+    while station.isconnected() == False:
+        pass
+    
+    try:
+        client = connect_mqtt()
+    except OSError as e:
+        restart_and_reconnect()
+        
     while True:
         try:
             msg = client.check_msg()
+            sleep(0.01)
         except OSError as e:
             restart_and_reconnect()
-
-def task():
-    while True:
-        ran = random.randint(1, 2)
-        print(ran)
-        if ran == 1:
-            print('Interrupting')
-            interrupt_main()
-        time.sleep(1)
-
-def handle_sigint(signalum, frame):
-    print('Main Interrupted')
-    time.sleep(3)
 
 def connect_mqtt():
   global client_id, mqtt_server
@@ -59,9 +68,11 @@ def connect_mqtt():
   client = MQTTClient(client_id, mqtt_server)
   client.set_callback(subscribe_callback)
   client.connect()
-  client.subscribe(ambulance_detection)
-  client.subscribe('em/lane_2')
-  client.subscribe(siren_detection)
+  client.subscribe(detection_lane_1)
+  client.subscribe(detection_lane_2)
+  client.subscribe(detection_lane_3)
+  client.subscribe(detection_lane_4)
+  client.subscribe(siren)
   print('Connected to %s MQTT broker' % (mqtt_server))
   return client
 
@@ -71,36 +82,121 @@ def restart_and_reconnect():
   machine.reset()
   
 def subscribe_callback(topic, msg):
-    global lane_1, lane_2, lane_3, lane_4
+    global mqtt_lane_1, mqtt_lane_2, mqtt_lane_3, mqtt_lane_4, mqtt_sound
     msg = msg.decode('UTF-8')
+    #print(msg, topic)
     topic = topic.decode('UTF-8')
     if topic == 'em/lane_1':
-        lane_1 = int(msg)
-        print(lane_1)
-    for i in msg:
-        if i == 'q':
-            client.disconnect()
-
-def read_sensor():
-  try:
-    sensor.measure()
-    temp = sensor.temperature()
-    # uncomment for Fahrenheit
-    #temp = temp * (9/5) + 32.0
-    hum = sensor.humidity()
-    if (isinstance(temp, float) and isinstance(hum, float)) or (isinstance(temp, int) and isinstance(hum, int)):
-      temp = (b'{0:3.1f},'.format(temp))
-      hum =  (b'{0:3.1f},'.format(hum))
-      return temp, hum
-    else:
-      return('Invalid sensor readings.')
-  except OSError as e:
-    return('Failed to read sensor.')
+        #print('lane:1 ', msg)
+        mqtt_lane_1 = int(msg)
+    elif topic == 'em/lane_2':
+        mqtt_lane_2 = int(msg)
+    elif topic == 'em/lane_3':
+        mqtt_lane_3 = int(msg)
+    elif topic == 'em/lane_4':
+        mqtt_lane_4 = int(msg)
+    elif topic == 'em/sound':
+        mqtt_sound = int(msg)
 
 def my_interrupt_handler(timer):
-    # Check the value of the variable
-    if lane_1 == 1:
-        ep_1_interrupt()
+    global mqtt_lane_1, mqtt_lane_2, mqtt_lane_3, mqtt_lane_4, mqtt_sound, emergency_status, emergency_lane, emergency_status_pin
+    global client
+
+    if mqtt_sound == 0:
+        if emergency_status:
+            emergency_status = False
+
+    if mqtt_lane_1 == 0:
+        if emergency_status:
+            emergency_status = False
+            mqtt_lane_1 = 0
+            lane_1_yellow()
+    elif mqtt_lane_2 == 0:
+        if emergency_status:
+            emergency_status = False
+            mqtt_lane_2 = 0
+            lane_2_yellow()
+    elif mqtt_lane_3 == 0:
+        if emergency_status:
+            emergency_status = False
+            mqtt_lane_3 = 0
+            lane_3_yellow()
+    elif mqtt_lane_4 == 0:
+        if emergency_status:
+            emergency_status = False
+            mqtt_lane_4 = 0
+            lane_4_yellow()
+
+        # SIREN FIRST DETECTION
+    if mqtt_sound == 1:
+            # print('AMBULANCE SIREN DETECTED')
+        if mqtt_lane_1 == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 0
+        elif mqtt_lane_2 == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 1
+        elif mqtt_lane_3 == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 2
+        elif mqtt_lane_4 == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 3
+
+        # AMBULANCE FIRST DETECTION
+    if mqtt_lane_1 == 1:
+        if mqtt_sound == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 0
+    elif mqtt_lane_2 == 1:
+        if mqtt_sound == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 1
+    elif mqtt_lane_3 == 1:
+        if mqtt_sound == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 2
+    elif mqtt_lane_4 == 1:
+        if mqtt_sound == 1:
+            if not emergency_status:
+                emergency_status = True
+                emergency_lane = 3
+
+    if emergency_status:
+        client.publish('em/emergency', '1')
+        emergency_status_pin.value(1)
+        if emergency_lane == 0:
+            lane_1_green()
+            print('EMERGENCY ON LANE 1')
+            client.publish('em/lanes', '1')
+            sleep(0.1)
+        elif emergency_lane == 1:
+            lane_2_green()
+            print('EMERGENCY ON LANE 2')
+            client.publish('em/lanes', '2')
+            sleep(0.1)
+        elif emergency_lane == 2:
+            lane_3_green()
+            print('EMERGENCY ON LANE 3')
+            client.publish('em/lanes', '3')
+            sleep(0.1)
+        elif emergency_lane == 3:
+            lane_4_green()
+            print('EMERGENCY ON LANE 4')
+            client.publish('em/lanes', '4')
+            sleep(0.1)
+    else:
+        sleep(0.1)
+        client.publish('em/emergency', '0')
+        client.publish('em/lanes', '0')
+        emergency_status_pin.value(0)
 
 # Emergency Interrupt
 em_1 = False
@@ -109,50 +205,54 @@ em_3 = False
 em_4 = False
 
 def ep_1_interrupt():
+    global mqtt_lane_1
 
     while True:
-        if pin.value() == 0:
+        if mqtt_lane_1 == 0:
             lane_1_yellow()
             break
         else:
             lane_1_green()
             print('EMERGENCY ON LANE 1')
-            sleep(0.1)
+            sleep(5)
 
-def ep_2_interrupt(pin):
+def ep_2_interrupt():
+    global mqtt_lane_2
 
     while True:
-        if pin.value() == 0:
+        if mqtt_lane_2 == 0:
             lane_2_yellow()
             break
         else:
             lane_2_green()
             print('EMERGENCY ON LANE 2')
-            sleep(0.1)
+            sleep(5)
 
 
-def ep_3_interrupt(pin):
+def ep_3_interrupt():
+    global mqtt_lane_3
 
     while True:
-        if pin.value() == 0:
+        if mqtt_lane_3 == 0:
             lane_3_yellow()
             break
         else:
             lane_3_green()
             print('EMERGENCY ON LANE 3')
-            sleep(0.1)
+            sleep(5)
 
 
-def ep_4_interrupt(pin):
+def ep_4_interrupt():
+    global mqtt_lane_4
 
     while True:
-        if pin.value() == 0:
+        if mqtt_lane_4 == 0:
             lane_4_yellow()
             break
         else:
             lane_4_green()
             print('EMERGENCY ON LANE 4')
-            sleep(0.1)
+            sleep(5)
 
 
 # Emergency Pins
@@ -160,6 +260,8 @@ ep_1 = Pin(5, Pin.IN, Pin.PULL_DOWN)
 ep_2 = Pin(18, Pin.IN, Pin.PULL_DOWN)
 ep_3 = Pin(19, Pin.IN, Pin.PULL_DOWN)
 ep_4 = Pin(2, Pin.IN, Pin.PULL_DOWN)
+
+emergency_status_pin = Pin(18, Pin.OUT)
 
 
 # Interrupt Handler
@@ -223,51 +325,42 @@ def main():
     yellow_1.value(0)
     red_1.value(0)
     
-    station = network.WLAN(network.STA_IF)
-
-    station.active(True)
-    station.connect(ssid, password)
-
-    while station.isconnected() == False:
-        pass
+    _thread.start_new_thread(my_thread_func, ())
 
     print('Connection successful')
     
-    try:
-        client = connect_mqtt()
-    except OSError as e:
-        restart_and_reconnect()
+    sleep(4)
     
     timer = machine.Timer(0)
 
-    my_variable = 0
-
     timer.init(period=100, mode=machine.Timer.PERIODIC, callback=my_interrupt_handler)
     
-    _thread.start_new_thread(my_thread_func, ())
+    print('Thread Started')
+    
+    print('Starting Traffic Light Sequence')
+    
+    print('-----------------')
 
     while True:  # cycle through 4 lanes
 
         lane_1_green()
-        print(em_1)
-        sleep(5)
+        sleep(10)
         lane_1_yellow()
         sleep(3)
         lane_2_green()
-        print(em_1)
-        sleep(5)
+        sleep(10)
         lane_2_yellow()
         sleep(3)
         lane_3_green()
-        print(em_1)
-        sleep(5)
+        sleep(10)
         lane_3_yellow()
         sleep(3)
         lane_4_green()
-        print(em_1)
-        sleep(5)
+        sleep(10)
         lane_4_yellow()
         sleep(3)
+        
+        print('---Cycle Complete---\n')
 
 def traffic_1_check():
 
@@ -443,3 +536,5 @@ def lane_4_yellow():
 
 if __name__ == "__main__":
     main()
+
+

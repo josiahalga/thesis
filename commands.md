@@ -13,8 +13,14 @@ python object-detection/yolo/detect.py --weights yolov7.pt --conf 0.25 --view-im
 
 ## For Tracking Videos
 ```cmd
-python object-detection/yolo/detect.py --weights yolo_tiny_freezing.pt --conf 0.25 --view-img --img-size 640 --source data/ambulance.mp4 --device 0
+python object-detection/yolo/detect.py --weights emergency_tiny_2.pt --conf 0.25 --view-img --img-size 640 --source data/testing/1_ambulance_2.mp4 --device 0
 ```
+
+## For Multiple Videos
+```cmd
+python object-detection/yolo/detect.py --weights emergency_tiny_2.pt --conf 0.25 --view-img --img-size 640 --source streams.txt --device 0
+```
+
 
 ## Using webcam
 ```cmd

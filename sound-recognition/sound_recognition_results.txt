@@ -29,3 +29,587 @@ Detected: 0
 Not Detected: 2
 Total Batches: 2
 
+Detected: 54
+Not Detected: 116
+Total Batches: 170
+
+Detected: 0
+Not Detected: 2
+Total Batches: 2
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 2
+Total Batches: 2
+
+Detected: 4
+Not Detected: 27
+Total Batches: 31
+
+Detected: 33
+Not Detected: 106
+Total Batches: 139
+
+Detected: 26
+Not Detected: 63
+Total Batches: 89
+
+Detected: 3
+Not Detected: 14
+Total Batches: 17
+
+Detected: 74
+Not Detected: 124
+Total Batches: 198
+
+Detected: 23
+Not Detected: 49
+Total Batches: 72
+
+Detected: 20
+Not Detected: 73
+Total Batches: 93
+
+Detected: 9
+Not Detected: 13
+Total Batches: 22
+
+Detected: 3
+Not Detected: 11
+Total Batches: 14
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 18
+Not Detected: 44
+Total Batches: 62
+
+Detected: 14
+Not Detected: 30
+Total Batches: 44
+
+Detected: 22
+Not Detected: 66
+Total Batches: 88
+
+Detected: 1
+Not Detected: 7
+Total Batches: 8
+
+Detected: 1
+Not Detected: 4
+Total Batches: 5
+
+Detected: 3
+Not Detected: 30
+Total Batches: 33
+
+Detected: 1
+Not Detected: 10
+Total Batches: 11
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 25
+Not Detected: 206
+Total Batches: 231
+
+Detected: 33
+Not Detected: 420
+Total Batches: 453
+
+Detected: 2
+Not Detected: 16
+Total Batches: 18
+
+Detected: 3
+Not Detected: 32
+Total Batches: 35
+
+Detected: 12
+Not Detected: 43
+Total Batches: 55
+
+Detected: 3
+Not Detected: 6
+Total Batches: 9
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 2
+Total Batches: 2
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 2
+Not Detected: 3
+Total Batches: 5
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+
+Detected: 0
+Not Detected: 0
+Total Batches: 0
+

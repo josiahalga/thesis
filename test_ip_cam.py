@@ -6,7 +6,7 @@ from time import sleep
 
 from paho.mqtt import client as mqtt_client
 
-broker = '192.168.1.1'
+broker = '192.168.1.18'
 port = 1883
 topic = "em/lane_2"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
@@ -177,7 +177,7 @@ def task():
         subscribe(client, mqtt_lane_3)
         subscribe(client, mqtt_lane_4)
         subscribe(client, siren)
-        client.loop_start()
+        client.loop_forever()
     except KeyboardInterrupt:
         client.loop_stop()
 
