@@ -1,3 +1,4 @@
+# RUN ON ESP32 USING THONNY
 from traffic import lane
 from machine import Pin
 from time import sleep

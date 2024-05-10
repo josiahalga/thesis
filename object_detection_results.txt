@@ -1,0 +1,450 @@
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_1.mp4
+True Positive: 142
+False Positive: 246
+True Negative: 15032
+Detections: 15420
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_3.mp4
+True Positive: 380
+False Positive: 545
+True Negative: 15046
+Detections: 15971
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_1.mp4
+True Positive: 0
+False Positive: 22
+True Negative: 21302
+Detections: 21324
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_2.mp4
+True Positive: 0
+False Positive: 12
+True Negative: 19623
+Detections: 19635
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_3.mp4
+True Positive: 0
+False Positive: 5
+True Negative: 15791
+Detections: 15796
+
+File: D:\Thesis\Emergency Priority\data\testing\2_ambulance_1.mp4
+True Positive: 229
+False Positive: 113
+True Negative: 8865
+Detections: 9207
+
+File: D:\Thesis\Emergency Priority\data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 10
+True Negative: 5839
+Detections: 5849
+
+File: D:\Thesis\Emergency Priority\data\testing\2_road_2.mp4
+True Positive: 216
+False Positive: 270
+True Negative: 53146
+Detections: 53632
+
+File: D:\Thesis\Emergency Priority\data\testing\2_road_3.mp4
+True Positive: 0
+False Positive: 5
+True Negative: 6861
+Detections: 6866
+
+File: D:\Thesis\Emergency Priority\data\testing\2_ambulance_2.mp4
+True Positive: 42
+False Positive: 17
+True Negative: 4687
+Detections: 4746
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_1.mp4
+True Positive: 142
+False Positive: 246
+True Negative: 15032
+Detections: 15420
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_1.mp4
+True Positive: 142
+False Positive: 246
+True Negative: 15032
+Detections: 15420
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_1.mp4
+True Positive: 142
+False Positive: 246
+True Negative: 15032
+Detections: 15420
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_1.mp4
+True Positive: 142
+False Positive: 246
+True Negative: 15032
+Detections: 15420
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_2.mp4
+True Positive: 0
+False Positive: 12
+True Negative: 19623
+Detections: 19635
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_2.mp4
+True Positive: 0
+False Positive: 12
+True Negative: 19623
+Detections: 19635
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 46
+False Positive: 81
+True Negative: 9245
+Detections: 9372
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_3.mp4
+True Positive: 380
+False Positive: 545
+True Negative: 15046
+Detections: 15971
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_3.mp4
+True Positive: 0
+False Positive: 5
+True Negative: 15791
+Detections: 15796
+
+File: D:\Thesis\Emergency Priority\data\testing\1_road_3.mp4
+True Positive: 0
+False Positive: 5
+True Negative: 15791
+Detections: 15796
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_3.mp4
+True Positive: 472
+False Positive: 453
+True Negative: 15046
+Detections: 15971
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_3.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 15971
+Detections: 15971
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_3.mp4
+True Positive: 0
+False Positive: 504
+True Negative: 15467
+Detections: 15971
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_3.mp4
+True Positive: 472
+False Positive: 0
+True Negative: 15499
+Detections: 15971
+
+File: data\testing\2_road_3.mp4
+True Positive: 385
+False Positive: 0
+True Negative: 16338
+Detections: 16723
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 21691
+Detections: 21691
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 18448
+Detections: 18448
+
+File: D:\Thesis\Emergency Priority\data\testing\1_ambulance_2.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 9210
+Detections: 9210
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 11341
+Detections: 11341
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 13430
+Detections: 13430
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 5412
+Detections: 5412
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 17587
+Detections: 17587
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 8833
+Detections: 8833
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 18928
+Detections: 18928
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 18613
+Detections: 18613
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 20747
+Detections: 20747
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 20064
+Detections: 20064
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 20463
+Detections: 20463
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 6670
+Detections: 6670
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 7625
+Detections: 7625
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 13997
+Detections: 13997
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 13889
+Detections: 13889
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 12272
+Detections: 12272
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 19202
+Detections: 19202
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 19392
+Detections: 19392
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 15730
+Detections: 15730
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 17835
+Detections: 17835
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 16043
+Detections: 16043
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 18489
+Detections: 18489
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 22499
+Detections: 22499
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 19575
+Detections: 19575
+
+File: data\testing\2_road_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 17632
+Detections: 17632
+
+File: data\testing\2_road_2.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 9432
+Detections: 9432
+
+File: data\testing\2_road_2.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 8252
+Detections: 8252
+
+File: data\testing\2_road_2.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 16483
+Detections: 16483
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 9387
+Detections: 9387
+
+File: data\testing\2_ambulance_1.mp4
+True Positive: 0
+False Positive: 0
+True Negative: 13206
+Detections: 13206
+
+File: D:\Thesis\Emergency Priority\data\firetruck.jpg
+True Positive: 0
+False Positive: 0
+True Negative: 1
+Detections: 1
+
+File: D:\Thesis\Emergency Priority\data\firetruck.jpg
+True Positive: 0
+False Positive: 0
+True Negative: 2
+Detections: 2
+
+File: D:\Thesis\Emergency Priority\data\police.png
+True Positive: 0
+False Positive: 0
+True Negative: 3
+Detections: 3
+
+File: D:\Thesis\Emergency Priority\data\police_2.png
+True Positive: 0
+False Positive: 0
+True Negative: 2
+Detections: 2
+
